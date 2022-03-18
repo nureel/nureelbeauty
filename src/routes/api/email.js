@@ -5,7 +5,7 @@ export async function post({ request }) {
     let status;
     let defaultClient = SibApiV3Sdk.ApiClient.instance;
     let apiKey = defaultClient.authentications['api-key'];
-    apiKey.apiKey = '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';
+    apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
 
     let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
