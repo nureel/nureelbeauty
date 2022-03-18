@@ -49,8 +49,8 @@
 
         </nav>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="/#" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-amber-600"> Sign in </a>
-          <a href="/#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-amber-600"> Sign up </a>
+          <a href="/#" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Sign in </a>
+          <a href="/#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
         </div>
       </div>
     </div>  
@@ -77,7 +77,7 @@
               <p class="mt-3 text-base text-neutral-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
               <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
-                  <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray bg-amber-400 hover:bg-yelow-500 md:py-4 md:text-lg md:px-10"> Get started </a>
+                  <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray bg-amber-400 hover:bg-pink-400 md:py-4 md:text-lg md:px-10"> Get started </a>
                 </div>
                 <!-- <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
@@ -172,7 +172,7 @@
         </h2>
         <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
           <div class="inline-flex rounded-md shadow">
-            <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-amber-500"> Get started </a>
+            <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Get started </a>
           </div>
           <div class="ml-3 inline-flex rounded-md shadow">
             <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-white hover:bg-indigo-50"> Learn more </a>
@@ -217,7 +217,7 @@
                   </div>
                 </div>
                 <div class="px-4 py-3 bg-neutral-800 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
                 </div>
               </div>
             </form>
