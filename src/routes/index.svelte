@@ -10,7 +10,7 @@
 	let feedback = '';
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`email`, { name, email, feedback });
+		const response = await post(`/api/email`, { name, email, feedback });
 		// TODO handle network errors
 		errors = response.errors;
 		goto('/');
@@ -206,7 +206,7 @@
                   <div>
                     <label for="email" class="block text-sm font-medium text-neutral-100"> Email </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="email" name="email" bind:value={email} required/>
+                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="email" name="email" bind:value={email}/>
                     </div>
                   </div>      
                   <div>
