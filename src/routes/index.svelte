@@ -8,6 +8,7 @@
 	let name = '';
   let email = '';
 	let feedback = '';
+  let current = false;
 	let errors = null;
 	async function submit(event) {
 		const response = await post(`/api/email`, { name, email, feedback });
@@ -18,7 +19,7 @@
 
 </script>
 
-<section class="bg-neutral-900">
+<section id="header">
     <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-neutral-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -34,7 +35,7 @@
         </div>
 
         <div class="-mr-2 -my-2 md:hidden">
-          <button type="button" class="bg-neutral-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-neutral-100 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+          <button on:click="{() => current = true}" type="button" class="open:bg-neutral-900 rounded-md p-2 inline-flex items-center justify-center text-amber-400 hover:text-pink-400" aria-expanded="false">
             <span class="sr-only">Open menu</span>
             <!-- Heroicon name: outline/menu -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -43,24 +44,58 @@
           </button>
         </div>
         <nav class="hidden md:flex space-x-10">
-          <a href="/#" class="text-base font-medium text-pink-400 hover:text-amber-400"> PRODUCTS </a>
-          <a href="/#" class="text-base font-medium text-pink-400 hover:text-amber-400"> FEATURES </a>
-          <a href="/#" class="text-base font-medium text-pink-400 hover:text-amber-400"> PRICING </a>
-
+          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUCTS </a>
+          <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> FEATURES </a>
+          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRICING </a>
+          <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> CONTACT US</a>
         </nav>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <a href="/#" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Sign in </a>
           <a href="/#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
         </div>
       </div>
-    </div>  
+    </div>
+
+    <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right {current === false ? 'hidden' : 'visible'}">
+      <div class="rounded-lg shadow-md bg-neutral-900 ring-1 ring-black ring-opacity-5 overflow-hidden">
+        <div class="px-5 pt-4 flex items-center justify-between">
+          <div class="flex justify-start">
+            <span class="sr-only">Nureel</span>
+            <img class="h-8 w-auto" src={logo} alt="">
+            <img class="h-8 w-auto sm:h-10" src={word} alt="">
+          </div>
+          <div class="-mr-2">
+            <button on:click="{() => current = false}" type="button" class="bg-neutral-900 rounded-md p-2 inline-flex items-center justify-center text-amber-400 hover:text-pink-400">
+              <span class="sr-only">Close main menu</span>
+              <!-- Heroicon name: outline/x -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Products</a>
+
+          <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Features</a>
+
+          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Pricing</a>
+
+          <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Contact Us</a>
+        </div>
+        <a href="/#" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign In </a>
+        <a href="/#" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign Up </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<section>
+<section id="main">
   <div class="relative bg-neutral-800 overflow-hidden">
       <div class="max-w-7xl mx-auto">
-        <div class="relative z-10 pb-8 bg-neutral-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+        <div class="relative pb-8 bg-neutral-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-neutral-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <polygon points="50,0 100,0 50,100 0,100" />
           </svg>
@@ -92,12 +127,13 @@
       </div>
     </div>
   </section>
-  <section>
+
+  <section id="features">
       <!-- This example requires Tailwind CSS v2.0+ -->
   <div class="py-12 bg-neutral-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
-          <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Transactions</h2>
+          <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Features</h2>
           <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-amber-400 sm:text-4xl">A better way to send money</p>
           <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
         </div>
@@ -162,7 +198,7 @@
     
   </section> 
   
-  <section>
+  <section id="section3">
       <!-- This example requires Tailwind CSS v2.0+ -->
   <div class="bg-neutral-800">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -174,28 +210,31 @@
           <div class="inline-flex rounded-md shadow">
             <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Get started </a>
           </div>
-          <div class="ml-3 inline-flex rounded-md shadow">
+          <!-- <div class="ml-3 inline-flex rounded-md shadow">
             <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-white hover:bg-indigo-50"> Learn more </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <div class="bg-neutral-900 py-12">
       <div>
         <div class="md:grid md:grid-cols-3 md:gap-3">
           <div class="p-5 md:col-span-1">
             <div class="sm:px-0">
               <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Contact Us</h2>
-              <p class="mt-1 text-sm text-gray-600">This information will be displayed publicly so be careful what you share.</p>
+              <p class="mt-1 text-sm text-neutral-100">This information will be displayed publicly so be careful what you share.</p>
             </div>
           </div>
           <div class="p-5 md:mt-0 md:col-span-2">
             <form on:submit|preventDefault={submit}>
               <div class="shadow rounded sm:overflow-hidden bg-neutral-800">
                 <div class="px-4 py-5 space-y-6 sm:p-6">
+                  <div>
+                    <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Get In Touch</h2>
+                  </div>
                   <div>
                     <label for="name" class="block text-sm font-medium text-neutral-100"> Name </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
@@ -210,19 +249,28 @@
                     </div>
                   </div>      
                   <div>
-                    <label for="about" class="block text-sm font-medium text-neutral-100"> Feedback </label>
+                    <label for="about" class="block text-sm font-medium text-neutral-100"> Message </label>
                     <div class="mt-1">
-                      <textarea id="about" name="feedback" rows="5" class="shadow-sm py-2 pl-2 pr-2 block w-full rounded-md shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" bind:value={feedback} required></textarea>
+                      <textarea id="about" name="feedback" rows="5" class="py-2 pl-2 pr-2 block w-full rounded-md shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" bind:value={feedback} required></textarea>
                     </div>
                   </div>
                 </div>
                 <div class="px-4 py-3 bg-neutral-800 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2">Submit</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="relative py-10 bg-neutral-800">
+      <div class="flex justify-center">
+        <p class="text-pink-400">© 2022 Nureel Beauty. All rights reserved</p>
+      </div>
+
     </div>
   </section>
