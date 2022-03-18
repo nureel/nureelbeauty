@@ -1,7 +1,21 @@
 <script>
-    const logo = '/img/logo.png'
-    const word = '/img/logo_word.png'
-    const mainImg = '/img/main.jpg'
+  const logo = '/img/logo.png'
+  const word = '/img/logo_word.png'
+  const mainImg = '/img/main.jpg'
+  import { goto } from '$app/navigation';
+	import { post } from '$lib/utils.js';
+
+	let name = '';
+  let email = '';
+	let feedback = '';
+	let errors = null;
+	async function submit(event) {
+		const response = await post(`email`, { name, email, feedback });
+		// TODO handle network errors
+		errors = response.errors;
+		goto('/');
+	}
+
 </script>
 
 <section class="bg-neutral-900">
@@ -179,26 +193,26 @@
             </div>
           </div>
           <div class="p-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form on:submit|preventDefault={submit}>
               <div class="shadow rounded sm:overflow-hidden bg-neutral-800">
                 <div class="px-4 py-5 space-y-6 sm:p-6">
                   <div>
                     <label for="name" class="block text-sm font-medium text-neutral-100"> Name </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="text" name="name"/>
+                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="text" name="name" bind:value={name} />
                       
                     </div>
                   </div>
                   <div>
                     <label for="email" class="block text-sm font-medium text-neutral-100"> Email </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="email" name="email"/>
+                      <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="email" name="email" bind:value={email} required/>
                     </div>
                   </div>      
                   <div>
                     <label for="about" class="block text-sm font-medium text-neutral-100"> Feedback </label>
                     <div class="mt-1">
-                      <textarea id="about" name="about" rows="5" class="shadow-sm py-2 pl-2 pr-2 block w-full rounded-md shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder=""></textarea>
+                      <textarea id="about" name="feedback" rows="5" class="shadow-sm py-2 pl-2 pr-2 block w-full rounded-md shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" bind:value={feedback} required></textarea>
                     </div>
                   </div>
                 </div>
