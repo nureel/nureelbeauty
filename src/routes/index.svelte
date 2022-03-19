@@ -1,8 +1,8 @@
 <script>
   const logo = '/img/logo.png'
-  const word = '/img/logo_word.png'
   const mainImg = '/img/main.jpg'
   import { goto } from '$app/navigation';
+  import { session } from '$app/stores';
 	import { post } from '$lib/utils.js';
 
 	let name = '';
@@ -27,11 +27,8 @@
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="/#">
             <span class="sr-only">Nureel</span>
-            <img class="h-8 w-auto sm:h-10" src={logo} alt="">
+            <img class="h-6 w-auto sm:h-8" src={logo} alt="">
           </a>
-          <div>
-            <img class="h-8 w-auto sm:h-10" src={word} alt="">
-          </div>
         </div>
 
         <div class="-mr-2 -my-2 md:hidden">
@@ -49,10 +46,16 @@
           <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRICING </a>
           <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> CONTACT US</a>
         </nav>
+        {#if $session.user}
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="/#" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Sign in </a>
-          <a href="/#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
+          <a href="/dashboard" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Dashboard </a>
         </div>
+        {:else}
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Sign in </a>
+          <a href="/auth/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
+        </div>
+        {/if}
       </div>
     </div>
 
@@ -61,8 +64,7 @@
         <div class="px-5 pt-4 flex items-center justify-between">
           <div class="flex justify-start">
             <span class="sr-only">Nureel</span>
-            <img class="h-8 w-auto" src={logo} alt="">
-            <img class="h-8 w-auto sm:h-10" src={word} alt="">
+            <img class="h-6 w-auto" src={logo} alt="Nureel">
           </div>
           <div class="-mr-2">
             <button on:click="{() => current = false}" type="button" class="bg-neutral-900 rounded-md p-2 inline-flex items-center justify-center text-amber-400 hover:text-pink-400">
@@ -84,8 +86,12 @@
 
           <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Contact Us</a>
         </div>
-        <a href="/#" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign In </a>
-        <a href="/#" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign Up </a>
+        {#if $session.user}
+          <a href="/dashboard" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Dashboard </a>
+        {:else}
+          <a href="/auth/signin" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign In </a>
+          <a href="/auth/signup" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign Up </a>
+        {/if}
       </div>
     </div>
   </div>
