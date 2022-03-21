@@ -9,10 +9,10 @@ export async function handleError({ error, event }) {
 		tracesSampleRate: 1.0,
 	});
 	
-	const transaction = Sentry.startTransaction({
-		op: "test",
-		name: "My First Test Transaction",
-	});
+	// const transaction = Sentry.startTransaction({
+	// 	op: "test",
+	// 	name: "My First Test Transaction",
+	// });
 	
 	// setTimeout(() => {
 	// 	try {
