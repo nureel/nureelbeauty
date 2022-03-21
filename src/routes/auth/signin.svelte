@@ -22,7 +22,7 @@
 	async function submit(event) {
 		const response = await post(`signin`, { email, password });
     console.log(response)
-    errors = response.errors;
+    // errors = response.errors;
     if (response) {
 			// @ts-ignore
 			$session.user = response;
