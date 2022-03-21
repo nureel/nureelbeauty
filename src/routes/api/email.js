@@ -1,17 +1,13 @@
-// import SibApiV3Sdk from '@sendinblue/client';
-import SibApiV3Sdk from 'sib-api-v3-typescript';
+import SibApiV3Sdk from 'sib-api-v3-sdk';
 
 export async function post({ request }) {
     const data = await request.json();
-    let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-
-    // let status;
-    // let defaultClient = SibApiV3Sdk.ApiClient.instance;
-    // let apiKey = defaultClient.authentications['api-key'];
-    // apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
-    let apiKey = apiInstance.authentications['apiKey'];
-    apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
     
+    // let status;
+    let defaultClient = SibApiV3Sdk.ApiClient.instance;
+    let apiKey = defaultClient.authentications['api-key'];
+    apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
+    let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
     sendSmtpEmail.subject = "Feedback";
@@ -27,13 +23,6 @@ export async function post({ request }) {
         console.error(error);
       });
 
-    // apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
-    // console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-    // status = 200;
-    // }, function(error) {
-    // console.error(error);
-    // status = 500
-    // });
     return {
         body: {
             message: 'Successfully send email',
