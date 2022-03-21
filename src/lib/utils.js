@@ -23,14 +23,12 @@ async function send({ method, path, data, token }) {
 		});
 }
 
-export function get(path, token) {
-	// @ts-ignore
-	return send({ method: 'GET', path, token });
+export function get(path, data, token) {
+	return send({ method: 'GET', path, data, token });
 }
 
-export function del(path, token) {
-	// @ts-ignore
-	return send({ method: 'DELETE', path, token });
+export function del(path, data, token) {
+	return send({ method: 'DELETE', path, data, token });
 }
 
 export function post(path, data, token) {

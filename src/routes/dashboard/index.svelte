@@ -29,7 +29,7 @@
 	// 	goto('/');
 	// }
   async function logout() {
-		await post(`/api/signout`);
+		await post(`signout`);
 		// this will trigger a redirect, because it
 		// causes the `load` function to run again
 		// @ts-ignore

@@ -14,6 +14,7 @@
   import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
+  import ListErrors from '$lib/ListErrors.svelte';
   
 	let email = '';
 	let password = '';
@@ -21,7 +22,7 @@
 	async function submit(event) {
 		const response = await post(`signin`, { email, password });
     console.log(response)
-
+    errors = response.errors;
     if (response) {
 			// @ts-ignore
 			$session.user = response;
