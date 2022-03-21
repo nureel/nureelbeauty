@@ -29,6 +29,8 @@
   },
   "type": "module",
   "dependencies": {
+    "@sentry/node": "^6.18.2",
+    "@sentry/tracing": "^6.18.2",
     "@sveltejs/adapter-cloudflare": "^1.0.0-next.16"
   }
 }
