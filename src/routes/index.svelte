@@ -11,7 +11,7 @@
   let current = false;
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`/api/email`, { name, email, feedback });
+		const response = await post(`email`, { name, email, feedback });
 		// TODO handle network errors
 		errors = response.errors;
 		goto('/');

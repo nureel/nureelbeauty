@@ -19,7 +19,7 @@
 	let password = '';
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`/api/signin`, { email, password });
+		const response = await post(`signin`, { email, password });
     console.log(response)
 
     if (response) {
