@@ -20,12 +20,24 @@
 	let password = '';
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`signin`, { email, password });
+		// const response = await post(`signin`, { email, password });
+    const response = await fetch('/api/signin', {
+        method: 'POST',
+        body: JSON.stringify({
+            email: email,
+            password: password
+        }),
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
     console.log(response)
     // errors = response.errors;
     if (response) {
 			// @ts-ignore
-			$session.user = response;
+			$session.user = response.user;
 			goto('/dashboard');
 		} else {
       console.log("username & password is incorrect")
