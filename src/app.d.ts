@@ -4,7 +4,15 @@
 // for information about these interfaces
 declare namespace App {
 	// interface Locals {}
-	// interface Platform {}
+	interface Platform {
+		env: {
+			COUNTER: DurableObjectNamespace;
+		};
+		context: {
+			waitUntil(promise: Promise<any>): void;
+		}
+	}
 	// interface Session {}
 	// interface Stuff {}
 }
+

@@ -25,8 +25,12 @@
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
+    }).then(response => {
+      if(response.ok) return response.json();
+    }).then(json => {
+      console.log(json)
     });
-		console.log(response)
+		// console.log(response)
     // TODO handle network errors
 		// errors = response.errors;
 		goto('/');

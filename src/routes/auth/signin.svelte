@@ -32,16 +32,15 @@
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
+    }).then(response => {
+      if(response.ok) return response.json();
+    }).then(json => {
+      console.log(json)
+      if(json){
+        $session.user = json;
+			  goto('/dashboard');
+      } else console.log("username & password is incorrect")
     });
-    console.log(response)
-    // errors = response.errors;
-    if (response) {
-			// @ts-ignore
-			$session.user = response.user;
-			goto('/dashboard');
-		} else {
-      console.log("username & password is incorrect")
-    }
 	}
 </script>
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
