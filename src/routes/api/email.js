@@ -1,5 +1,6 @@
 import SibApiV3Sdk from 'sib-api-v3-sdk';
 
+/** @type {import('./[id]').RequestHandler} */
 export async function post({ request }) {
     const data = await request.json();
     let defaultClient = SibApiV3Sdk.ApiClient.instance;
@@ -23,7 +24,7 @@ export async function post({ request }) {
 
     return {
         body: {
-            message: apiKey.apiKey,
+            message: 'test',
         },
     }
 }

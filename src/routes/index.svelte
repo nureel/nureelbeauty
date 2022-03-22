@@ -1,4 +1,4 @@
-<script>
+<script context="module">
   const logo = '/img/logo.png'
   const mainImg = '/img/main.jpg'
   import { goto } from '$app/navigation';
@@ -11,7 +11,7 @@
   let current = false;
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`email`, { name, email, feedback }, '');
+		const response = await post(`email`, { name, email, feedback });
 		console.log(response)
     // TODO handle network errors
 		// errors = response.errors;
