@@ -11,8 +11,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sentry/node": "^6.18.2",
-    "@sentry/tracing": "^6.18.2",
+    "@sendgrid/mail": "^7.6.2",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "autoprefixer": "^10.4.4",

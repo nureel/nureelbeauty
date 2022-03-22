@@ -12,7 +12,8 @@ export async function post({ request }) {
 
     sendSmtpEmail.subject = "Feedback";
     sendSmtpEmail.htmlContent = "<html><body><h1>{{params.parameter}}</h1></body></html>";
-    sendSmtpEmail.sender = {"name":data.name,"email":data.email};
+    // sendSmtpEmail.sender = {"name":data.name,"email":data.email};
+    sendSmtpEmail.sender = {"name":data.name,"email":""};
     sendSmtpEmail.to = [{"email":"cs@nureelbeauty.com","name":"Nureel Beauty"}];
     sendSmtpEmail.headers = {"Some-Custom-Name":"unique-id-1234"};
     sendSmtpEmail.params = {"parameter":data.feedback,"subject":"New Subject"};
@@ -20,7 +21,7 @@ export async function post({ request }) {
     apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
         console.log('API called successfully. Returned data: ' + JSON.stringify(data));
       }, function(error) {
-        console.error(error);
+        // console.error(error);
       });
 
     return {
