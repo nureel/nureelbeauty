@@ -11,17 +11,22 @@
   let current = false;
 	let errors = null;
 	async function submit(event) {
-		// const response = await post(`email`, { name, email, feedback });
-    const response = await fetch('/api/email', {
+    const response = await fetch('https://api.sendinblue.com/v3/smtp/email', {
         method: 'POST',
         body: JSON.stringify({
-            name: name,
-            email: email,
-            feedback: feedback
+            sender: {
+              name : name,
+              email: email
+            },
+            to: [{
+              email : 'cs@nureelbeauty.com',
+              name: 'Nureel beauty'
+            }],
+            subject: 'Feedback',
+            textContent: feedback
         }),
-        credentials: 'same-origin',
         headers: {
-            'Access-Control-Allow-Origin': '*',
+            'api-key': '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',
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
