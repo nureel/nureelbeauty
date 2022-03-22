@@ -1,4 +1,4 @@
-// import SibApiV3Sdk from 'sib-api-v3-sdk';
+import SibApiV3Sdk from 'sib-api-v3-sdk';
 
 /** @type {import('./[id]').RequestHandler} */
 export async function post({ request }) {
