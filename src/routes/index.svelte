@@ -1,15 +1,16 @@
-<script context="module">
+<script>
   const logo = '/img/logo.png'
   const mainImg = '/img/main.jpg'
   import { goto } from '$app/navigation';
   import { session } from '$app/stores';
-	import { post } from '$lib/utils.js';
+	import { variables } from '$lib/variables.js';
 
 	let name = '';
   let email = '';
 	let feedback = '';
   let current = false;
 	let errors = null;
+  let apiKey = variables.SIB_KEY;
 	async function submit(event) {
     const response = await fetch('https://api.sendinblue.com/v3/smtp/email', {
         method: 'POST',
@@ -26,7 +27,7 @@
             textContent: feedback
         }),
         headers: {
-            'api-key': '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',
+            'api-key': apiKey,
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
