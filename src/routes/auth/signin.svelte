@@ -1,5 +1,5 @@
 <script context="module">
-	export async function load({ session }) {
+  export async function load({ session }) {
     if (session.user) {
 			return {
 				status: 302,
@@ -15,12 +15,12 @@
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
   import ListErrors from '$lib/ListErrors.svelte';
-  
+
 	let email = '';
 	let password = '';
 	let errors = null;
 	async function submit(event) {
-		// const response = await post(`signin`, { email, password });
+    // const response = await post(`signin`, { email, password });
     const response = await fetch('/api/signin', {
         method: 'POST',
         body: JSON.stringify({

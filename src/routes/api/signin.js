@@ -1,15 +1,17 @@
-import { mongoose } from 'mongoose';
+import { PrismaClient } from '@prisma/client'
 import bcryptjs from 'bcryptjs';
-import Account from '$lib/models/account';
-const uri = import.meta.env.VITE_DB_URI;
-mongoose.connect(uri);
 
 export async function post({ request }) {
 	const data = await request.json();
+	const prisma = new PrismaClient()
 	let header = {};
-	// let user = null;
-	let user = await Account.findOne({email: data.email});
-	console.log(user)
+	let user = null;
+	await prisma.$connect()
+
+	const allUsers = await prisma.user.findMany()
+  console.log(allUsers)
+	// let user = await Account.findOne({email: data.email});
+	// console.log(user)
 	// if(user){
 	// 	const check = await bcryptjs.compareSync(data.password, user.password)
 	// 	if (check === true){
