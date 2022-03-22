@@ -37,8 +37,8 @@
     }).then(json => {
       console.log(json)
       if(json){
-        $session.user = json;
-			  goto('/dashboard');
+        // $session.user = json;
+			  // goto('/dashboard');
       } else console.log("username & password is incorrect")
     });
 	}
