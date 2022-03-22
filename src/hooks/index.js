@@ -1,10 +1,5 @@
 import * as cookie from 'cookie';
 
-/** @type {import('@sveltejs/kit').HandleError} */
-export async function handleError({ error, event }) {
-	console.log(error, event);
-}
-
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
 	
@@ -16,22 +11,12 @@ export async function handle({ event, resolve }) {
 
 /** @type {import('@sveltejs/kit').GetSession} */
 export function getSession( event ) {
-	// console.log(event.locals)
-
   return event.locals.user
     ? {
         user: {
           name: event.locals.user.name,
           email: event.locals.user.email,
-
         }
       }
-    : {};
-	// return {
-	// 	userAgent: event.locals.headers['user-agent'],
-	// 	user: event.locals.user && {
-	// 		name: event.locals.user.name,
-	// 		email: event.locals.user.email,
-	// 	}
-	// };
+    : {user: null};
 }

@@ -8,40 +8,25 @@
 		}
 		return {};
 	}
+</script>
 
+<script>
 	const logo = '/img/logo.png'
   import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
-  import ListErrors from '$lib/ListErrors.svelte';
 
 	let email = '';
 	let password = '';
-	let errors = null;
 	async function submit(event) {
-    // const response = await post(`signin`, { email, password });
-    const response = await fetch('/api/signin', {
-        method: 'POST',
-        body: JSON.stringify({
-            email: email,
-            password: password
-        }),
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-      if(response.ok) return response.json();
-    }).then(json => {
-      console.log(json)
-      if(json){
-        // $session.user = json;
-			  // goto('/dashboard');
-      } else console.log("username & password is incorrect")
-    });
+    const response = await post(`signin`, { email, password });
+    if(response){
+      $session.user = response;
+      goto('/dashboard');
+    } else console.log("username & password is incorrect")
 	}
 </script>
+
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="bg-neutral-900 p-10 max-w-md w-full space-y-8">
       <div>

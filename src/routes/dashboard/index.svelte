@@ -1,6 +1,5 @@
 <script context="module">
 	export async function load({ session }) {
-    console.log(session)
     if (!session.user) {
 			return {
 				status: 302,
@@ -10,6 +9,7 @@
 		return {};
 	}
 </script>
+
 <script>
 	const logo = '/img/logo.png'
 	const mainImg = '/img/main.jpg'
@@ -17,23 +17,11 @@
   import { session } from '$app/stores';
 	import { post } from '$lib/utils.js';
 
-	// let name = '';
-	// let email = '';
-	// let feedback = '';
 	let mobile = false;
 	let profile = false;
-	let errors = null;
-	// async function submit(event) {
-	// 	const response = await post(`/api/email`, { name, email, feedback });
-	// 	// TODO handle network errors
-	// 	errors = response.errors;
-	// 	goto('/');
-	// }
+
   async function logout() {
 		await post(`signout`);
-		// this will trigger a redirect, because it
-		// causes the `load` function to run again
-		// @ts-ignore
 		$session.user = null;
     goto('/')
 	}
