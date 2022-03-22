@@ -1,13 +1,14 @@
 // import { PrismaClient } from '@prisma/client';
 import bcryptjs from 'bcryptjs';
-import {MongoClient} from 'mongodb'
-const uri = import.meta.env.VITE_DB_URI;
-const client = new MongoClient(uri);
+import mongoose from 'mongoose'
+
 export async function post({ request }) {
 	const data = await request.json();
 	
 	let header = {};
 	let user = null;
+	const uri = import.meta.env.VITE_DB_URI;
+	mongoose.connect(uri);
 	// const prisma = new PrismaClient()
 	// await prisma.$connect()
 	// const allUsers = await prisma.user.findMany()
