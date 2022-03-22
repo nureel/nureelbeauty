@@ -8,8 +8,7 @@
 		}
 		return {};
 	}
-</script>
-<script>
+
 	const logo = '/img/logo.png'
   import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
