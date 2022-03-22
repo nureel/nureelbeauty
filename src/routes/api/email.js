@@ -1,4 +1,5 @@
-import SibApiV3Sdk from 'sib-api-v3-sdk';
+// import SibApiV3Sdk from 'sib-api-v3-sdk';
+import nodemailer from 'nodemailer';
 
 /** @type {import('./[id]').RequestHandler} */
 export async function post({ request }) {
