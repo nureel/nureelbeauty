@@ -1,14 +1,15 @@
-import mongoose from 'mongoose';
+import { mongoose } from 'mongoose';
 import bcryptjs from 'bcryptjs';
 import Account from '$lib/models/account';
 const uri = import.meta.env.VITE_DB_URI;
-// mongoose.connect(uri);
+mongoose.connect(uri);
 
 export async function post({ request }) {
 	const data = await request.json();
 	let header = {};
-	let user = null;
-	// let user = await Account.findOne({email: data.email});
+	// let user = null;
+	let user = await Account.findOne({email: data.email});
+	console.log(user)
 	// if(user){
 	// 	const check = await bcryptjs.compareSync(data.password, user.password)
 	// 	if (check === true){
