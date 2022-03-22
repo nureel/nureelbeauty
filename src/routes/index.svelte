@@ -11,7 +11,19 @@
   let current = false;
 	let errors = null;
 	async function submit(event) {
-		const response = await post(`email`, { name, email, feedback });
+		// const response = await post(`email`, { name, email, feedback });
+    const response = await fetch('/api/email', {
+        method: 'POST',
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            feedback: feedback
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
 		console.log(response)
     // TODO handle network errors
 		// errors = response.errors;

@@ -3,9 +3,10 @@ import SibApiV3Sdk from 'sib-api-v3-sdk';
 /** @type {import('./[id]').RequestHandler} */
 export async function post({ request }) {
     const data = await request.json();
-    let defaultClient = SibApiV3Sdk.ApiClient.instance;
-    let apiKey = defaultClient.authentications['api-key'];
-    apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
+    console.log(data)
+    // let defaultClient = SibApiV3Sdk.ApiClient.instance;
+    // let apiKey = defaultClient.authentications['api-key'];
+    // apiKey.apiKey = import.meta.env.VITE_SIB_KEY;
     // let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
     // let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
@@ -24,7 +25,7 @@ export async function post({ request }) {
 
     return {
         body: {
-            message: 'test',
+            message: data,
         },
     }
 }

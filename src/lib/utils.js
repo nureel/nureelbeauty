@@ -6,7 +6,7 @@ async function send({ method, path, data, token }) {
 	if (data) {
 		opts.headers['Content-Type'] = 'application/json';
 		opts.headers['Accept'] = 'application/json';
-		opts.credentials = 'include';
+		opts.credentials = 'same-origin';
 		opts.body = JSON.stringify(data);
 	}
 
