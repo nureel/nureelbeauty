@@ -66,18 +66,18 @@
           </button>
         </div>
         <nav class="hidden md:flex space-x-10">
-          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUCTS </a>
-          <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> FEATURES </a>
-          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRICING </a>
-          <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> CONTACT US</a>
+          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUK </a>
+          <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> ISTIMEWA </a>
+          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HARGA </a>
+          <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HUBUNGI KAMI</a>
         </nav>
         {#if $session.user}
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="/dashboard" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Dashboard </a>
+          <a href="/dashboard" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Ruang Ahli </a>
         </div>
         {:else}
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Sign in </a>
+          <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Log Masuk </a>
           <a href="/auth/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
         </div>
         {/if}
@@ -103,19 +103,19 @@
         </div>
 
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Products</a>
+          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
 
-          <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Features</a>
+          <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Istimewa</a>
 
-          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Pricing</a>
+          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Harga</a>
 
-          <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Contact Us</a>
+          <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Hubungi Kami</a>
         </div>
         {#if $session.user}
-          <a href="/dashboard" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Dashboard </a>
+          <a href="/dashboard" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Ruang Ahli </a>
         {:else}
-          <a href="/auth/signin" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign In </a>
-          <a href="/auth/signup" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Sign Up </a>
+          <a href="/auth/signin" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Log Masuk </a>
+          <a href="/auth/signup" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Daftar </a>
         {/if}
       </div>
     </div>
@@ -127,8 +127,8 @@
   <div class="relative bg-neutral-800 overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="relative pb-8 bg-neutral-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-neutral-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <polygon points="50,0 100,0 50,100 0,100" />
+          <svg class="hidden z-20 lg:block absolute right-0 inset-y-0 h-full w-48 text-neutral-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polygon points="0,0 100,0 50,100 0,100" />
           </svg>
     
           <div>
@@ -136,14 +136,14 @@
             </div>
           <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div class="sm:text-center lg:text-left">
-              <h1 class="text-4xl tracking-tight font-extrabold text-pink-400 sm:text-5xl md:text-6xl">
-                <span class="block xl:inline">Data to enrich your</span>
-                <span class="block text-amber-400 xl:inline">online business</span>
+              <h1 class="text-4xl tracking-tight font-extrabold text-pink-400 sm:text-6xl md:text-7xl">
+                <span class="block xl:inline">Serlahkan sinar</span>
+                <span class="block text-amber-400 xl:inline">rupawan anda...</span>
               </h1>
               <p class="mt-3 text-base text-neutral-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
               <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
-                  <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray bg-amber-400 hover:bg-pink-400 md:py-4 md:text-lg md:px-10"> Get started </a>
+                  <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray bg-amber-400 hover:bg-pink-400 md:py-4 md:text-lg md:px-10"> Daftar Sekarang </a>
                 </div>
                 <!-- <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a href="/#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
@@ -239,7 +239,7 @@
         </h2>
         <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
           <div class="inline-flex rounded-md shadow">
-            <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Get started </a>
+            <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Daftar Sekarang </a>
           </div>
           <!-- <div class="ml-3 inline-flex rounded-md shadow">
             <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-white hover:bg-indigo-50"> Learn more </a>
@@ -255,7 +255,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-3">
           <div class="p-5 md:col-span-1">
             <div class="sm:px-0">
-              <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Contact Us</h2>
+              <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Hubungi Kami</h2>
               <p class="mt-1 text-sm text-neutral-100">This information will be displayed publicly so be careful what you share.</p>
             </div>
           </div>
@@ -264,30 +264,30 @@
               <div class="shadow rounded sm:overflow-hidden bg-neutral-800">
                 <div class="px-4 py-5 space-y-6 sm:p-6">
                   <div>
-                    <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Get In Touch</h2>
+                    <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Borang Maklum Balas</h2>
                   </div>
                   <div>
-                    <label for="name" class="block text-sm font-medium text-neutral-100"> Name </label>
+                    <label for="name" class="block text-sm font-medium text-neutral-100"> Nama </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
                       <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="text" name="name" bind:value={name} required/>
                       
                     </div>
                   </div>
                   <div>
-                    <label for="email" class="block text-sm font-medium text-neutral-100"> Email </label>
+                    <label for="email" class="block text-sm font-medium text-neutral-100"> Emel </label>
                     <div class="mt-2 flex rounded-md shadow-sm">
                       <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-2 shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" type="email" name="email" bind:value={email} required/>
                     </div>
                   </div>      
                   <div>
-                    <label for="about" class="block text-sm font-medium text-neutral-100"> Message </label>
+                    <label for="about" class="block text-sm font-medium text-neutral-100"> Mesej </label>
                     <div class="mt-1">
                       <textarea id="about" name="feedback" rows="5" class="py-2 pl-2 pr-2 block w-full rounded-md shadow-sm focus:outline-none focus:border-amber-500 focus:ring-amber-500 focus:ring-1 sm:text-sm" placeholder="" bind:value={feedback} required></textarea>
                     </div>
                   </div>
                 </div>
-                <div class="px-4 py-3 bg-neutral-800 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2">Submit</button>
+                <div class="px-4 py-4 bg-neutral-800 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2">Hantar</button>
                 </div>
               </div>
             </form>
@@ -300,7 +300,7 @@
   <section>
     <div class="relative py-10 bg-neutral-800">
       <div class="flex justify-center">
-        <p class="text-pink-400">© 2022 Nureel Beauty. All rights reserved</p>
+        <p class="text-pink-400">© 2022 Nureel Beauty. Hak Cipta Terpelihara</p>
       </div>
 
     </div>
