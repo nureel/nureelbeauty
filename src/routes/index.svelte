@@ -47,8 +47,8 @@
 <section id="header">
     <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-neutral-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+    <div class="max-w mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="/#">
             <span class="sr-only">Nureel</span>
@@ -78,7 +78,7 @@
         {:else}
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Log Masuk </a>
-          <a href="/auth/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Sign up </a>
+          <a href="/auth/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Daftar </a>
         </div>
         {/if}
       </div>
@@ -86,7 +86,7 @@
 
     <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right {current === false ? 'hidden' : 'visible'}">
       <div class="rounded-lg shadow-md bg-neutral-900 ring-1 ring-black ring-opacity-5 overflow-hidden">
-        <div class="px-5 pt-4 flex items-center justify-between">
+        <div class="px-5 flex items-center justify-between">
           <div class="flex justify-start">
             <span class="sr-only">Nureel</span>
             <img class="h-6 w-auto" src={logo} alt="Nureel">
@@ -136,7 +136,7 @@
             </div>
           <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div class="sm:text-center lg:text-left">
-              <h1 class="text-4xl tracking-tight font-extrabold text-pink-400 sm:text-6xl md:text-7xl">
+              <h1 class="text-4xl tracking-tight font-extrabold text-pink-400 sm:text-6xl md:text-6xl">
                 <span class="block xl:inline">Serlahkan sinar</span>
                 <span class="block text-amber-400 xl:inline">rupawan anda...</span>
               </h1>

@@ -10,7 +10,6 @@ export async function post({ request }) {
 	mongoose.connect(uri);
 
 	let user = await Account.findOne({email: data.email});
-	console.log(user)
 	if(user){
 		const check = await bcryptjs.compareSync(data.password, user.password)
 		if (check === true){

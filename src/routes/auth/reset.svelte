@@ -1,14 +1,29 @@
+<script context="module">
+  export async function load({ url, fetch }) {
+		const id = new URLSearchParams(url.search).get("id")
+    const response = await fetch('/api/expiry', {method: 'post', body: JSON.stringify({id: id}),credentials:'same-origin'})
+    .then(response => response.json())
+    if (!response){
+      return {
+        status: 302,
+        redirect: '/auth/forgot'
+      }
+    }
+		return {};
+	}
+</script>
 <script>
 	const logo = '/img/logo.png'
   import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
 
-	let code = '';
-  let email = '';
+	let password = '';
+  let confirm = '';
   let show = false;
+
 	async function submit(event) {
-    const response = await post(`forgot`, { email});
+    const response = await post(`forgot`, { password });
     goto('/auth/signin');
 	}
 
@@ -21,18 +36,24 @@
             <img class="mx-auto h-12 w-auto" src={logo} alt="Nureel">
           </a>
         
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-amber-400">Lupa kata laluan?</h2>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-amber-400">Set semula kata laluan</h2>
         <p class="mt-2 text-center text-sm text-neutral-100">
-          Sila masukkan emel anda atau
-          <a href="/auth/signin" class="font-medium text-pink-400 hover:text-amber-400"> log masuk akaun anda </a>
+          Sila masukkan kata laluan baru
         </p>
       </div>
       <form class="mt-8 space-y-6" on:submit|preventDefault={submit}>
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
-            <label for="email-address" class="sr-only">Emel</label>
-            <input bind:value={email} id="email-address" type="email" required class="appearance-none rounded-md relative block w-full px-3 py-2 border border-neutral-300 placeholder-neutral-500 text-neutral-900 focus:outline-none focus:ring-amber-400 focus:border-amber-400 focus:z-10 sm:text-sm" placeholder="Emel">
+            <label for="password" class="sr-only">Kata laluan</label>
+            <input bind:value={password} type="password" required class="mt-6 appearance-none rounded-md relative block w-full px-3 py-2 border border-neutral-300 placeholder-neutral-500 text-neutral-900 focus:outline-none focus:ring-amber-400 focus:border-amber-400 focus:z-10 sm:text-sm" placeholder="Kata laluan" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,&#125;"
+            title="Mesti mengandungi sekurang-kurang SATU NOMBOR dan SATU HURUF BESAR dan huruf kecil, serta panjang sekurang-kurang 8 AKSARA">>
           </div>
+          <div>
+            <label for="password" class="sr-only">Kata laluan</label>
+            <input bind:value={confirm} type="password" required class="appearance-none rounded-md relative block w-full px-3 py-2 border border-neutral-300 placeholder-neutral-500 text-neutral-900 focus:outline-none focus:ring-amber-400 focus:border-amber-400 focus:z-10 sm:text-sm" placeholder="Sah Kata laluan" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,&#125;"
+            title="Mesti mengandungi sekurang-kurang SATU NOMBOR dan SATU HURUF BESAR dan huruf kecil, serta panjang sekurang-kurang 8 AKSARA">>
+          </div>
+
         </div> 
         <div>
           <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

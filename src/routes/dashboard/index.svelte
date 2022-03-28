@@ -1,31 +1,24 @@
 <script context="module">
 	export async function load({ session }) {
     if (!session.user) {
-			return {
-				status: 302,
-				redirect: '/auth/signin'
-			};
-		}
+      return {
+        status: 302,
+        redirect: '/auth/signin'
+      };
+		} else {
+      if (session.user.email_verify === false){
+        return {
+          status: 302,
+          redirect: '/auth/verify'
+        };
+      }
+    }
 		return {};
 	}
 </script>
 
 <script>
   import Navbar from '$lib/components/adminNavbar.svelte'
-	// const logo = '/img/logo.png'
-	// const mainImg = '/img/main.jpg'
-	// import { goto } from '$app/navigation';
-  // import { session } from '$app/stores';
-	// import { post } from '$lib/utils.js';
-  
-	// let mobile = false;
-	// let profile = false;
-
-  // async function logout() {
-	// 	await post(`signout`);
-	// 	$session.user = null;
-  //   goto('/')
-	// }
 </script>
 
 <div class="bg-neutral-800 min-h-full">
