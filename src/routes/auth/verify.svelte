@@ -20,7 +20,7 @@
   let show = false;
 	async function submit(event) {
     email = $session.user.email;
-    const response = await post(`verify`, { code , email});
+    const response = await post(`auth/verify`, { code , email});
     if(response){
       $session.user = response;
       goto('/dashboard');
@@ -29,7 +29,7 @@
 
   async function send(event) {
     email = $session.user.email;
-    const response = await post(`sendVerify`, { email});
+    const response = await post(`auth/sendVerify`, { email});
     if(response){
       $session.user = response;
     }

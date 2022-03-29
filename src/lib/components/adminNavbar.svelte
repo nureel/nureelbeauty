@@ -8,7 +8,7 @@
 	let profile = false;
 
   async function logout() {
-		await post(`signout`);
+		await post(`auth/signout`);
 		// @ts-ignore
 		$session.user = null;
     goto('/')

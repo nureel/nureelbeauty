@@ -1,17 +1,13 @@
 <script>
 	const logo = '/img/logo.png'
-  import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
 
-	let code = '';
   let email = '';
-  let show = false;
 	async function submit(event) {
-    const response = await post(`forgot`, { email});
+    const response = await post(`auth/forgot`, { email});
     goto('/auth/signin');
 	}
-
 </script>
 
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

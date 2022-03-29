@@ -20,7 +20,7 @@
 	let password = '';
   let show = false;
 	async function submit(event) {
-    const response = await post(`signin`, { email, password });
+    const response = await post(`auth/signin`, { email, password });
     if(response){
       $session.user = response;
       goto('/dashboard');

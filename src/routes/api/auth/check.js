@@ -4,17 +4,18 @@ import { variables } from '$lib/variables.js';
 
 export async function post({ request }) {
 	const data = await request.json();
-	let user = null;
+	let ok = false;
 	let header = {};
 	const uri = variables.DB_URI;
 	mongoose.connect(uri);
 
-	user = await Account.findOneAndUpdate({email: data.email}, {
-		reset_expiry : new Date()
-	});
-	
+	user = await Account.findOne({email: data.email});
+	if (user){
+		ok = true;
+	}
+
 	return {
 		headers: header,
-		body: user,
+		body: ok,
 	};
 }

@@ -40,13 +40,3 @@ export function post(path, data, token) {
 export function put(path, data, token) {
 	return send({ method: 'PUT', path, data, token });
 }
-// export function post(endpoint, data) {
-// 	return fetch(endpoint, {
-// 		method: 'POST',
-// 		// credentials: 'include',
-// 		body: JSON.stringify(data || {}),
-// 		headers: {
-// 			'Content-Type': 'application/json'
-// 		}
-// 	}).then((r) => r.json());
-// }

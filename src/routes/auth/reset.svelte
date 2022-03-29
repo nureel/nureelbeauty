@@ -1,30 +1,40 @@
 <script context="module">
   export async function load({ url, fetch }) {
 		const id = new URLSearchParams(url.search).get("id")
-    const response = await fetch('/api/expiry', {method: 'post', body: JSON.stringify({id: id}),credentials:'same-origin'})
+    const user = await fetch('/api/auth/expiry', {method: 'post', body: JSON.stringify({id: id}),credentials:'same-origin'})
     .then(response => response.json())
-    if (!response){
+    if (!user){
       return {
         status: 302,
         redirect: '/auth/forgot'
       }
     }
-		return {};
+		return {
+      props: {
+        user
+      }
+    };
 	}
 </script>
 <script>
 	const logo = '/img/logo.png'
-  import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/utils.js';
-
-	let password = '';
+  
+  export let user	
+  let password = '';
   let confirm = '';
+  let id = user._id
   let show = false;
 
 	async function submit(event) {
-    const response = await post(`forgot`, { password });
-    goto('/auth/signin');
+    if (password === confirm){
+      show = false;
+      const response = await post(`auth/reset`, { password, id });
+      goto('/auth/signin');
+    } else {
+      show = true;
+    }
 	}
 
 </script>
@@ -53,7 +63,14 @@
             <input bind:value={confirm} type="password" required class="appearance-none rounded-md relative block w-full px-3 py-2 border border-neutral-300 placeholder-neutral-500 text-neutral-900 focus:outline-none focus:ring-amber-400 focus:border-amber-400 focus:z-10 sm:text-sm" placeholder="Sah Kata laluan" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,&#125;"
             title="Mesti mengandungi sekurang-kurang SATU NOMBOR dan SATU HURUF BESAR dan huruf kecil, serta panjang sekurang-kurang 8 AKSARA">>
           </div>
-
+          <div class="{show === false ? 'hidden' : 'visible'}">
+            <div class=" bg-red-400 text-neutral-100 px-4 py-3 mb-6 rounded relative" role="alert">
+              <strong class="font-bold">Kata laluan tidak sama!</strong>
+              <button on:click="{() => show = !show}" type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-neutral-100" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+              </button>
+            </div>
+          </div>
         </div> 
         <div>
           <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
