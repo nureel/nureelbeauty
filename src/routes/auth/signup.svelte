@@ -26,7 +26,6 @@
     } else {
       show = true;
     }
-
 	}
 
   // check email

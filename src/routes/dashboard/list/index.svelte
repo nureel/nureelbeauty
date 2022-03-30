@@ -1,7 +1,3 @@
-<!-- <svelte:head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js" on:load={jsLoaded}></script>
-</svelte:head> -->
-
 <script context="module">
   export async function load({ session, fetch }) {
     if (!session.user) {
@@ -24,8 +20,23 @@
   import Navbar from '$lib/components/adminNavbar.svelte'
   import Grid  from 'gridjs-svelte'
   export let users
+  let array = []
 
-  const data = users;
+  for (let i of users){
+    let d = new Date(i.date)
+    array.push([i.name, i.email, d.toLocaleString('en-GB')])
+  }
+
+  // const data = users;
+  const data = array;
+  const columns = [{
+    name: "Nama",
+  },{
+    name: "Emel",
+    sort: true
+  },{
+    name: "Tarikh Serta",
+  }];
   const style = {
 		table: {
 			width: "100%",
@@ -70,6 +81,7 @@
         <!-- Replace with your content -->
         <Grid 
           {data}
+          {columns}
           sort
           search
           pagination={{ enabled: true, limit: 3 }}
