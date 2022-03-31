@@ -9,7 +9,8 @@ const accountSchema = new Schema({
     email_verify: {type: Boolean, default: false},
     email_code: String,
     reset_token: String,
-    reset_expiry: Date
+    reset_expiry: Date,
+    type: {type: Number, default: 0} // 0: normal, 1: super admin, 2: admin, 3: stockist, 4: agent
 });
 
 export default mongoose.model('Account', accountSchema);

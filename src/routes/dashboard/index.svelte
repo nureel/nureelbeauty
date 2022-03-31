@@ -24,12 +24,12 @@
 <div class="min-h-full">
     <Navbar></Navbar>
     <header class="bg-neutral-800 shadow">
-      <div class="max-w mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <h1 class="text-xl text-neutral-100">Utama</h1>
       </div>
     </header>
     <main>
-      <div class="bg-neutral-100 max-w mx-auto py-6 sm:px-6 lg:px-6">
+      <div class="bg-neutral-100 max-w-full mx-auto py-6 sm:px-6 lg:px-6">
         <!-- Replace with your content -->
         <div class="bg-white">
           <div class="max-w-2xl mx-auto py-6 px-4 sm:px-6 lg:max-w-7xl lg:px-8">

@@ -48,7 +48,7 @@
         </div>
         {:else}
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Log Masuk </a>
+          <a href="/auth/signin" class="whitespace-nowrap text-base font-medium text-amber-400 hover:text-pink-400"> Daftar Masuk </a>
           <a href="/auth/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-neutral-900 bg-amber-400 hover:bg-pink-400"> Daftar </a>
         </div>
         {/if}
@@ -85,7 +85,7 @@
         {#if $session.user}
           <a href="/dashboard" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Ruang Ahli </a>
         {:else}
-          <a href="/auth/signin" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Log Masuk </a>
+          <a href="/auth/signin" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Daftar Masuk </a>
           <a href="/auth/signup" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Daftar </a>
         {/if}
       </div>

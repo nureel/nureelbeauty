@@ -39,25 +39,35 @@
 							</i>
 							<span class="align-middle ml-1">Stok</span>
 						</a>
+						{#if $session.type === 1 || $session.type === 2}
+							<a href="/dashboard/list" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
+								<i class="hidden xl:inline-block align-middle">
+									<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z"/></svg>							</i>
+								<span class="align-middle ml-1">Senarai</span>
+							</a>  
 
-						<a href="/dashboard/list" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
-							<i class="hidden xl:inline-block align-middle">
-								<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z"/></svg>							</i>
-							<span class="align-middle ml-1">Senarai</span>
-						</a>  
+							<a href="/dashboard/feedback" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
+								<i class="hidden xl:inline-block align-middle">
+									<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z"/></svg>
+								</i>
+								<span class="align-middle ml-1">Maklum Balas</span>
+							</a>
 
-						<a href="/dashboard/feedback" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
+							<a href="/dashboard/report" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
+								<i class="hidden xl:inline-block align-middle">
+									<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z"/></svg>
+								</i>
+								<span class="align-middle ml-1">Laporan</span>
+							</a>
+						{/if}
+						{#if $session.type === 1}
+						<a href="/dashboard/setting" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
 							<i class="hidden xl:inline-block align-middle">
-								<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z"/></svg>
+								<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z"/></svg>							
 							</i>
-							<span class="align-middle ml-1">Maklum Balas</span>
+								<span class="align-middle ml-1">Tetapan</span>
 						</a>
-
-						<a href="/dashboard/report" class="group text-amber-400 hover:bg-neutral-700 hover:text-pink-400 active:bg-neutral-800 active:text-pink-400 px-3 py-2 rounded-md font-medium">
-							<i class="hidden xl:inline-block align-middle">
-								<svg width="20" height="20" class="fill-amber-400 group-hover:fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z"/></svg>                  </i>
-							<span class="align-middle ml-1">Laporan</span>
-						</a>
+						{/if}
 					</div>
 				</div>
 			</div>
@@ -92,11 +102,11 @@
 
 						<div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-neutral-800 ring-1 ring-amber-400 ring-opacity-5 focus:outline-none {profile === false ? 'hidden' : 'visible'}" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
 							<!-- Active: "bg-neutral-100", Not Active: "" -->
-							<a href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+							<a href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-0">Profil</a>
 
-							<a href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+							<!-- <a href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
 
-							<a on:click={logout} href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+							<a on:click={logout} href="/#" class="block px-4 py-2 text-sm text-amber-400" role="menuitem" tabindex="-1" id="user-menu-item-2">Daftar keluar</a>
 						</div>
 					</div>
 				</div>
@@ -134,11 +144,14 @@
 
 			<a href="/dashboard/stock" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Stok</a>
 
-			<a href="/dashboard/list" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Senarai</a>
+			{#if $session.type === 1 || $session.type === 2}
+				<a href="/dashboard/list" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Senarai</a>
 
-			<a href="/dashboard/feedback" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Maklum balas</a>
-
-			<a href="/dashboard/report" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Laporan</a>
+				<a href="/dashboard/feedback" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Maklum balas</a>
+			{/if}
+			{#if $session.type === 1}
+				<a href="/dashboard/report" class="text-amber-400 hover:bg-neutral-700 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Laporan</a>
+			{/if}
 		</div>
 		<div class="pt-4 pb-3 border-t border-pink-400">
 			<div class="flex items-center px-5">
