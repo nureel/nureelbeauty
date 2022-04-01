@@ -84,7 +84,7 @@
           {columns}
           sort
           search
-          pagination={{ enabled: true, limit: 3 }}
+          pagination={{ enabled: true, limit: 10 }}
           {language}
           {style}
           {className}

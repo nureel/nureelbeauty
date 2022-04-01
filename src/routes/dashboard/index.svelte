@@ -1,5 +1,7 @@
 <script context="module">
 	export async function load({ session }) {
+    console.log(session.user)
+    let userType = session.user.type
     if (!session.user) {
       return {
         status: 302,
