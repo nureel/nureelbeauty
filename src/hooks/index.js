@@ -17,7 +17,7 @@ export function getSession( event ) {
           name: event.locals.user.name,
           email: event.locals.user.email,
           email_verify: event.locals.user.email_verify,
-          type: event.locals.user.type
+          user_type: event.locals.user.type
         }
       }
     : {user: null};

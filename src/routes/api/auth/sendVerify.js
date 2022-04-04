@@ -1,5 +1,4 @@
 import { customAlphabet } from 'nanoid';
-import mongoose from 'mongoose'
 import Account from '$lib/models/account'
 import { variables } from '$lib/variables.js';
 
@@ -8,9 +7,7 @@ export async function post({ request }) {
 	let user = null;
 	let header = {};
 	let code;
-	const uri = variables.DB_URI;
 	const sib = variables.SIB_KEY;
-	mongoose.connect(uri);
 
 	user = await Account.findOne({email: data.email});
 	if(user){

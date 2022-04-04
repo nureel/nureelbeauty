@@ -14,7 +14,7 @@ export async function post({ request, url }) {
 		name: data.name,
 		email: data.email,
 		email_verify: true,
-		type: 2
+		user_type: 2
 	}).save();
 	
 	const response = await fetch('https://api.sendinblue.com/v3/smtp/email', {
