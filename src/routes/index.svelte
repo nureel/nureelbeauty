@@ -21,6 +21,9 @@
 	}
 
 </script>
+<svelte:head>
+  <title>Nureel Beauty</title>
+</svelte:head>
 
 <section id="header">
 <div class="relative bg-neutral-900">
