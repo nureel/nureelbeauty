@@ -14,6 +14,10 @@
   import Navbar from '$lib/components/adminNavbar.svelte'
 </script>
 
+<svelte:head>
+  <title>Laporan</title>
+</svelte:head>
+
 <div class="min-h-full">
     <Navbar></Navbar>
     <header class="bg-neutral-800 shadow">

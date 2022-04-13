@@ -2,7 +2,6 @@ import * as cookie from 'cookie';
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-	
 	const cookies = cookie.parse(event.request.headers.get('cookie') || '');
 	const jwt = cookies.jwt && Buffer.from(cookies.jwt, 'base64').toString('utf-8');
 	event.locals.user = jwt ? JSON.parse(jwt) : null;
@@ -17,7 +16,7 @@ export function getSession( event ) {
           name: event.locals.user.name,
           email: event.locals.user.email,
           email_verify: event.locals.user.email_verify,
-          user_type: event.locals.user.type
+          type: event.locals.user.type
         }
       }
     : {user: null};

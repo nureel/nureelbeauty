@@ -13,7 +13,6 @@
         }
       };
     }
-		
 	}
 </script>
 <script>
@@ -68,6 +67,10 @@
     pagination:"mt-3"
 	};
 </script>
+
+<svelte:head>
+  <title>Senarai</title>
+</svelte:head>
 
 <div class="min-h-full">
   <Navbar></Navbar>

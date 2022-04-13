@@ -1,5 +1,10 @@
 <script>
   const logo = '/img/logo.png'
+  const ls1 = '/img/lipserum1.jpeg'
+  const ls2 = '/img/lipserum2.jpeg'
+  const ls3 = '/img/lipserum3.jpeg'
+  const ls4 = '/img/lipserum4.jpeg'
+  const founder = 'img/founder.png'
   const mainImg = '/img/main.jpg'
   import { goto } from '$app/navigation';
   import { session } from '$app/stores';
@@ -37,7 +42,7 @@
           </button>
         </div>
         <nav class="hidden md:flex space-x-10">
-          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUK </a>
+          <a href="/#product" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUK </a>
           <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> ISTIMEWA </a>
           <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HARGA </a>
           <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HUBUNGI KAMI</a>
@@ -74,7 +79,7 @@
         </div>
 
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
+          <a href="/#product" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
 
           <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Istimewa</a>
 
@@ -110,7 +115,7 @@
               <span class="block xl:inline">Serlahkan sinar</span>
               <span class="block text-amber-400 xl:inline">rupawan anda...</span>
             </h1>
-            <p class="mt-3 text-base text-neutral-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+            <p class="mt-3 text-base text-neutral-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Cantik itu pilihan.. Serlahkan sinar rupawan anda bersama NUREEL BEAUTY</p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div class="rounded-md shadow">
                 <a href="/auth/signup" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray bg-amber-400 hover:bg-pink-400 md:py-4 md:text-lg md:px-10"> Daftar Sekarang </a>
@@ -133,7 +138,7 @@
   <div class="py-12 bg-neutral-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Features</h2>
+        <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Istimewa</h2>
         <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-amber-400 sm:text-4xl">A better way to send money</p>
         <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
       </div>
@@ -192,7 +197,92 @@
     </div>
   </div>
 </section> 
+
+<section id="product">
+  <div class="bg-neutral-800">
+    <div class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-extrabold tracking-tight text-amber-400 sm:text-4xl">Serum Bibir</h2>
+        <p class="mt-4 text-neutral-100">Serum bibir menenangkan kulit anda dan menjadikan bibir anda
+          halus dan membuat mereka kelihatan tembam dan
+          terhidrat. Kandungan yang kaya khasiat dengan minyak penghidratan 
+          menjadikan bibir anda sihat dan segar.</p>
   
+        <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Strawberi</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Manis semulajadi dan bau masam</dd>
+          </div>
+  
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Beri Campuran</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Manis lembut dan rasa gula getah</dd>
+          </div>
+  
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Minyak Badam</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Menngeluarkan sel kulit mati serta mengelakkan bibir merekah</dd>
+          </div>
+  
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Vitamin E</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Melembapkan & menenangkan bibir</dd>
+          </div>
+  
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Mentega Shea</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Anti-radang untuk menyembuhkan bibir merekah, menjadikan bibir lembut dan anjal serta antioksidan</dd>
+          </div>
+  
+          <!-- <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-pink-400">Considerations</dt>
+            <dd class="mt-2 text-sm text-neutral-100">Made from natural materials. Grain and color vary with each item.</dd>
+          </div> -->
+        </dl>
+      </div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+        <img src={ls3} alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." class="bg-gray-100 rounded-lg">
+        <img src={ls4} alt="Top down view of walnut card tray with embedded magnets and card groove." class="bg-gray-100 rounded-lg">
+        <img src={ls1} alt="Side of walnut card tray with card groove and recessed card area." class="bg-gray-100 rounded-lg">
+        <img src={ls2} alt="Walnut card tray filled with cards and card angled in dedicated groove." class="bg-gray-100 rounded-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="relative bg-neutral-900 overflow-hidden">
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={founder} alt="">
+    </div>
+    <div class="max-w-7xl mx-auto">
+      <div class="relative bg-neutral-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-neutral-900 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+        <main class="mx-auto max-w-7xl p-4 lg:p-8">
+          <div class="sm:text-center lg:text-left">
+            <h1 class="text-4xl mt-8 tracking-tight font-extrabold text-pink-400 sm:text-3xl md:text-5xl">
+              <span class="block xl:inline">Pengasas Nureel Beauty</span>
+              <span class="block text-amber-400 xl:inline">Puan Becca</span>
+            </h1>
+            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+              <!-- <div class="rounded-md shadow">
+                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
+              </div>
+              <div class="mt-3 sm:mt-0 sm:ml-3">
+                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
+              </div> -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="section3">
   <div class="bg-neutral-800">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -216,7 +306,38 @@
         <div class="p-5 md:col-span-1">
           <div class="sm:px-0">
             <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Hubungi Kami</h2>
-            <p class="mt-1 text-sm text-neutral-100">This information will be displayed publicly so be careful what you share.</p>
+            <!-- <p class="mt-1 text-sm text-neutral-100">This information will be displayed publicly so be careful what you share.</p> -->
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"/></svg>
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">Telefon</span>
+            </div>
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"/></svg>
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">Emel</span>
+            </div>
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"/></svg>              
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">Alamat</span>
+            </div>
+            <hr>
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">FB</span>
+            </div>
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">FB</span>
+            </div>
           </div>
         </div>
         <div class="p-5 md:mt-0 md:col-span-2">

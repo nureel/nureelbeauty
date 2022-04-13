@@ -72,6 +72,10 @@
 	};
 </script>
 
+<svelte:head>
+  <title>Maklum Balas</title>
+</svelte:head>
+
 <div class="min-h-full">
     <Navbar></Navbar>
     <header class="bg-neutral-800 shadow">
