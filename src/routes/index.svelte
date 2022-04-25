@@ -101,13 +101,11 @@
         </div>
 
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="/#products" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
-
-          <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Istimewa</a>
-
-          <a href="/#" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Harga</a>
-
-          <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Hubungi Kami</a>
+          <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">ISTIMEWA</a>
+          <a href="/#products" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">PRODUK</a>
+          <a href="/#testimony" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">TESTIMONI</a>
+          <a href="/#founder" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">PENGASAS</a>
+          <a href="/#contact" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">HUBUNGI KAMI</a>
         </div>
         {#if $session.user}
           <a href="/dashboard" on:click="{() => current = false}" class="block w-full px-5 py-3 text-center font-medium text-amber-400 bg-neutral-900 hover:bg-neutral-800"> Ruang Ahli </a>
@@ -307,7 +305,7 @@
       <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         <div class="group relative">
           <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-            <video width="320" height="240" controls>
+            <video controls>
               <source src={vid1} type="video/mp4">
                 <track kind="captions" />
             Your browser does not support the video tag.
@@ -317,7 +315,7 @@
 
         <div class="group relative">
           <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-            <video width="320" height="240" controls>
+            <video controls>
               <source src={vid2} type="video/mp4">
                 <track kind="captions" />
             Your browser does not support the video tag.
@@ -327,7 +325,7 @@
 
         <div class="group relative">
           <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-            <video width="320" height="240" controls>
+            <video controls>
               <source src={vid3} type="video/mp4">
                 <track kind="captions" />
             Your browser does not support the video tag.
@@ -337,7 +335,7 @@
 
         <div class="group relative">
           <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-            <video width="320" height="240" controls>
+            <video controls>
               <source src={vid4} type="video/mp4">
                 <track kind="captions" />
             Your browser does not support the video tag.
@@ -400,8 +398,8 @@
 </section>
 
 <section id="contact">
-  <div class="bg-neutral-900 py-12">
-    <div>
+  <div class="bg-neutral-900">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <div class="md:grid md:grid-cols-3 md:gap-3">
         <div class="p-5 md:col-span-1">
           <div class="sm:px-0">
@@ -485,7 +483,7 @@
 </section>
 
 <section>
-  <div class="relative py-10 bg-neutral-800">
+  <div class="relative py-4 bg-neutral-800">
     <div class="flex justify-center">
       <p class="text-pink-400">© 2022 Nureel Beauty. Hak Cipta Terpelihara</p>
     </div>
