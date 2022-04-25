@@ -1,9 +1,15 @@
 <script>
   const logo = '/img/logo.png'
+  const intro = '/vid/intro.mp4'
   const ls1 = '/img/lipserum1.jpeg'
   const ls2 = '/img/lipserum2.jpeg'
   const ls3 = '/img/lipserum3.jpeg'
   const ls4 = '/img/lipserum4.jpeg'
+  const vidProduct = '/vid/product.mp4'
+  const vid1 = '/vid/1.mp4'
+  const vid2 = '/vid/4.mp4'
+  const vid3 = '/vid/3.mp4'
+  const vid4 = '/vid/2.mp4'
   const founder = 'img/founder.png'
   const mainImg = '/img/main.jpg'
   import { goto } from '$app/navigation';
@@ -14,11 +20,23 @@
   let email = '';
 	let message = '';
   let current = false;
+  let modal;
 
 	async function submit(event) {
     const response = await post(`feedback/submit`, { name, email, message });
 		goto('/');
 	}
+
+  // function closeVideo(){
+  //   modal.close();
+  // }
+
+  // function showVideo(){
+  //   modal.showModal();
+  //   setTimeout(closeVideo, 7000);
+  // }
+
+  // setTimeout(showVideo, 3000);
 
 </script>
 <svelte:head>
@@ -45,9 +63,10 @@
           </button>
         </div>
         <nav class="hidden md:flex space-x-10">
-          <a href="/#product" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUK </a>
-          <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> ISTIMEWA </a>
-          <a href="/#" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HARGA </a>
+          <a href="/#features" class="text-base font-semibold text-pink-400 hover:text-amber-400"> ISTIMEWA </a>  
+          <a href="/#products" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PRODUK </a>
+          <a href="/#testimony" class="text-base font-semibold text-pink-400 hover:text-amber-400"> TESTIMONI </a>
+          <a href="/#founder" class="text-base font-semibold text-pink-400 hover:text-amber-400"> PENGASAS </a>
           <a href="/#contact" class="text-base font-semibold text-pink-400 hover:text-amber-400"> HUBUNGI KAMI</a>
         </nav>
         {#if $session.user}
@@ -82,7 +101,7 @@
         </div>
 
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="/#product" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
+          <a href="/#products" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Produk</a>
 
           <a href="/#features" on:click="{() => current = false}" class="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:text-amber-400 hover:bg-neutral-800">Istimewa</a>
 
@@ -100,6 +119,29 @@
     </div>
   </div>
 </section>
+
+<!-- <dialog bind:this={modal}>
+  <div class="fixed z-30 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+      -- This element is to trick the browser into centering the modal contents. --
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div class="relative inline-block align-bottom bg-amber-400 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div class="bg-neutral-900 p-1">
+          <div class="sm:flex sm:items-start">
+            <video autoplay>
+              <source src={intro} type="video/mp4">
+              <track kind="captions">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog> -->
 
 <section id="main">
   <div class="relative bg-neutral-800 overflow-hidden">
@@ -142,8 +184,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Istimewa</h2>
-        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-amber-400 sm:text-4xl">A better way to send money</p>
-        <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-amber-400 sm:text-4xl">Produk kecantikan yang memberi kepuasan</p>
+        <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Nureel Beauty menyediakan produk-produk terbaik serta peluang untuk berjaya kepada semua orang</p>
       </div>
   
       <div class="mt-10">
@@ -151,49 +193,41 @@
           <div class="relative">
             <dt>
               <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-amber-400 text-neutral-900">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
+                <svg class="h-6 w-6"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M336 64h-53.88C268.9 26.8 233.7 0 192 0S115.1 26.8 101.9 64H48C21.5 64 0 85.48 0 112v352C0 490.5 21.5 512 48 512h288c26.5 0 48-21.48 48-48v-352C384 85.48 362.5 64 336 64zM192 64c17.67 0 32 14.33 32 32s-14.33 32-32 32S160 113.7 160 96S174.3 64 192 64zM282.9 262.8l-88 112c-4.047 5.156-10.02 8.438-16.53 9.062C177.6 383.1 176.8 384 176 384c-5.703 0-11.25-2.031-15.62-5.781l-56-48c-10.06-8.625-11.22-23.78-2.594-33.84c8.609-10.06 23.77-11.22 33.84-2.594l36.98 31.69l72.52-92.28c8.188-10.44 23.3-12.22 33.7-4.062C289.3 237.3 291.1 252.4 282.9 262.8z"/></svg>
               </div>
-              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Competitive exchange rates</p>
+              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Kualiti Terbaik</p>
             </dt>
-            <dd class="mt-2 ml-16 text-base text-neutral-100">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+            <dd class="mt-2 ml-16 text-base text-neutral-100">Produk Nureel beauty mengandungi bahan-bahan yang berkualiti tinggi dan mendapat kelulusan dari KKM</dd>
           </div>
   
           <div class="relative">
             <dt>
               <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-amber-400 text-neutral-900">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                </svg>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 32C465.7 32 480 46.33 480 64C480 81.67 465.7 96 448 96H80C71.16 96 64 103.2 64 112C64 120.8 71.16 128 80 128H448C483.3 128 512 156.7 512 192V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM416 336C433.7 336 448 321.7 448 304C448 286.3 433.7 272 416 272C398.3 272 384 286.3 384 304C384 321.7 398.3 336 416 336z"/></svg>
               </div>
-              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">No hidden fees</p>
+              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Harga mampu Milik</p>
             </dt>
-            <dd class="mt-2 ml-16 text-base text-neutral-100">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+            <dd class="mt-2 ml-16 text-base text-neutral-100">Setiap produk Nureel Beauty mampu dimiliki oleh semua orang dengan harga yang berpatutan</dd>
           </div>
   
           <div class="relative">
             <dt>
               <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-amber-400 text-neutral-900">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M568.2 336.3c-13.12-17.81-38.14-21.66-55.93-8.469l-119.7 88.17h-120.6c-8.748 0-15.1-7.25-15.1-15.99c0-8.75 7.25-16 15.1-16h78.25c15.1 0 30.75-10.88 33.37-26.62c3.25-20-12.12-37.38-31.62-37.38H191.1c-26.1 0-53.12 9.25-74.12 26.25l-46.5 37.74L15.1 383.1C7.251 383.1 0 391.3 0 400v95.98C0 504.8 7.251 512 15.1 512h346.1c22.03 0 43.92-7.188 61.7-20.27l135.1-99.52C577.5 379.1 581.3 354.1 568.2 336.3zM279.3 175C271.7 173.9 261.7 170.3 252.9 167.1L248 165.4C235.5 160.1 221.8 167.5 217.4 179.1s2.121 26.2 14.59 30.64l4.655 1.656c8.486 3.061 17.88 6.095 27.39 8.312V232c0 13.25 10.73 24 23.98 24s24-10.75 24-24V221.6c25.27-5.723 42.88-21.85 46.1-45.72c8.688-50.05-38.89-63.66-64.42-70.95L288.4 103.1C262.1 95.64 263.6 92.42 264.3 88.31c1.156-6.766 15.3-10.06 32.21-7.391c4.938 .7813 11.37 2.547 19.65 5.422c12.53 4.281 26.21-2.312 30.52-14.84s-2.309-26.19-14.84-30.53c-7.602-2.627-13.92-4.358-19.82-5.721V24c0-13.25-10.75-24-24-24s-23.98 10.75-23.98 24v10.52C238.8 40.23 221.1 56.25 216.1 80.13C208.4 129.6 256.7 143.8 274.9 149.2l6.498 1.875c31.66 9.062 31.15 11.89 30.34 16.64C310.6 174.5 296.5 177.8 279.3 175z"/></svg>
               </div>
-              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Transfers are instant</p>
+              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Peluang Perniagaan</p>
             </dt>
-            <dd class="mt-2 ml-16 text-base text-neutral-100">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+            <dd class="mt-2 ml-16 text-base text-neutral-100">Nureel Beauty menyediakan peluang perniagaan kepada stokis-stokis dan ejen-ejen untuk menambah pendapatan</dd>
           </div>
   
           <div class="relative">
             <dt>
               <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-amber-400 text-neutral-900">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM164.1 325.5C158.3 318.8 148.2 318.1 141.5 323.9C134.8 329.7 134.1 339.8 139.9 346.5C162.1 372.1 200.9 400 255.1 400C311.1 400 349.8 372.1 372.1 346.5C377.9 339.8 377.2 329.7 370.5 323.9C363.8 318.1 353.7 318.8 347.9 325.5C329.9 346.2 299.4 368 255.1 368C212.6 368 182 346.2 164.1 325.5H164.1zM176.4 176C158.7 176 144.4 190.3 144.4 208C144.4 225.7 158.7 240 176.4 240C194 240 208.4 225.7 208.4 208C208.4 190.3 194 176 176.4 176zM336.4 240C354 240 368.4 225.7 368.4 208C368.4 190.3 354 176 336.4 176C318.7 176 304.4 190.3 304.4 208C304.4 225.7 318.7 240 336.4 240z"/></svg>
               </div>
-              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Mobile notifications</p>
+              <p class="ml-16 text-lg leading-6 font-medium text-pink-400">Kepuasan Terjamin</p>
             </dt>
-            <dd class="mt-2 ml-16 text-base text-neutral-100">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+            <dd class="mt-2 ml-16 text-base text-neutral-100">Nureel Beauty memberi jaminan kepuasan kepada pengguna-pengguna produk yang disediakan</dd>
           </div>
         </dl>
       </div>
@@ -201,9 +235,9 @@
   </div>
 </section> 
 
-<section id="product">
+<section id="products">
   <div class="bg-neutral-800">
-    <div class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+    <div class="max-w-2xl mx-auto py-10 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
       <div>
         <h2 class="text-3xl font-extrabold tracking-tight text-amber-400 sm:text-4xl">Serum Bibir</h2>
         <p class="mt-4 text-neutral-100">Serum bibir menenangkan kulit anda dan menjadikan bibir anda
@@ -254,6 +288,69 @@
 </section>
 
 <section>
+  <div class="bg-neutral-900 py-10">
+    <div class="flex justify-center mx-auto">
+      <video controls>
+        <source src={vidProduct} type="video/mp4">
+          <track kind="captions" />
+      Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="testimony">
+  <div class="bg-neutral-800">
+    <div class="max-w-2xl mx-auto py-10 px-4 lg:max-w-7xl lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-amber-400 sm:text-4xl">Testimoni</h2>
+  
+      <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div class="group relative">
+          <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+            <video width="320" height="240" controls>
+              <source src={vid1} type="video/mp4">
+                <track kind="captions" />
+            Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+            <video width="320" height="240" controls>
+              <source src={vid2} type="video/mp4">
+                <track kind="captions" />
+            Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+            <video width="320" height="240" controls>
+              <source src={vid3} type="video/mp4">
+                <track kind="captions" />
+            Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+            <video width="320" height="240" controls>
+              <source src={vid4} type="video/mp4">
+                <track kind="captions" />
+            Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>        
+        <!-- More products... -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
   <div class="relative bg-neutral-900 overflow-hidden">
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
       <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={founder} alt="">
@@ -290,8 +387,8 @@
   <div class="bg-neutral-800">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <h2 class="text-3xl font-extrabold tracking-tight text-pink-400 sm:text-4xl">
-        <span class="block">Ready to dive in?</span>
-        <span class="block text-amber-400">Start your free trial today.</span>
+        <span class="block">Siapkah anda untuk maju ke hadapan?</span>
+        <span class="block text-amber-400">Mulakan langkah anda sekarang.</span>
       </h2>
       <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
         <div class="inline-flex rounded-md shadow">
@@ -314,32 +411,38 @@
               <i class="inline-block align-middle">
                 <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"/></svg>
               </i>
-							<span class="align-middle ml-1 text-neutral-100">Telefon</span>
+							<span class="align-middle ml-1 text-neutral-100">+6019-6233811</span>
             </div>
             <div class="p-4">
               <i class="inline-block align-middle">
                 <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"/></svg>
               </i>
-							<span class="align-middle ml-1 text-neutral-100">Emel</span>
+							<span class="align-middle ml-1 text-neutral-100">info@nureelbeauty.com</span>
             </div>
             <div class="p-4">
               <i class="inline-block align-middle">
                 <svg width="20" height="20" class="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"/></svg>              
               </i>
-							<span class="align-middle ml-1 text-neutral-100">Alamat</span>
+							<span class="align-middle ml-1 text-neutral-100">Lot 187, Jalan Haruan 5/6, Pusat Komersial Oakland 2, 70300 Seremban, Negeri Sembilan</span>
             </div>
             <hr>
             <div class="p-4">
               <i class="inline-block align-middle">
                 <svg width="20" height="20" class="fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
               </i>
-							<span class="align-middle ml-1 text-neutral-100">FB</span>
+							<span class="align-middle ml-1 text-neutral-100">Nureel Beauty</span>
             </div>
             <div class="p-4">
               <i class="inline-block align-middle">
                 <svg width="20" height="20" class="fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
               </i>
-							<span class="align-middle ml-1 text-neutral-100">FB</span>
+							<span class="align-middle ml-1 text-neutral-100">@nureelbeauty</span>
+            </div>
+            <div class="p-4">
+              <i class="inline-block align-middle">
+                <svg width="20" height="20" class="fill-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+              </i>
+							<span class="align-middle ml-1 text-neutral-100">Nureel Beauty</span>
             </div>
           </div>
         </div>
