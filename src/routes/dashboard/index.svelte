@@ -1,7 +1,5 @@
 <script context="module">
 	export async function load({ session }) {
-    console.log(session.user)
-    let userType = session.user.type
     if (!session.user) {
       return {
         status: 302,
@@ -15,14 +13,22 @@
         };
       }
     }
-		return {};
+    const dashboard = await fetch('/api/dashboard').then(response => response.json())
+		return {
+      props: {
+          dashboard
+        }
+    };
 	}
 </script>
 
 <script>
   import { session } from '$app/stores';
-import Navbar from '$lib/components/adminNavbar.svelte'
-import { useRef } from 'gridjs';
+  import Navbar from '$lib/components/adminNavbar.svelte'
+  import CardStats from '$lib/components/CardStats.svelte';
+  import { useRef } from 'gridjs';
+
+  export let dashboard;
 </script>
 
 <svelte:head>
@@ -82,8 +88,62 @@ import { useRef } from 'gridjs';
             </div>
           </div>
         {:else}
-          <div>
-            Admin Dashboard
+          <div class="relative bg-white pb-8 pt-8">
+            <div class="px-4 md:px-10 mx-auto w-full">
+              <div>
+                <!-- Card stats -->
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <CardStats
+                      statSubtitle="PESANAN"
+                      statTitle={dashboard.products}
+                      statArrow="up"
+                      statPercent="3.48"
+                      statPercentColor="text-emerald-500"
+                      statDescripiron="Since last month"
+                      statIconName="fas fa-shopping-cart"
+                      statIconColor="bg-amber-400"
+                    />
+                  </div>
+                  <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <CardStats
+                      statSubtitle="AHLI"
+                      statTitle={dashboard.accounts}
+                      statArrow="down"
+                      statPercent="3.48"
+                      statPercentColor="text-red-500"
+                      statDescripiron="Since last week"
+                      statIconName="fas fa-users"
+                      statIconColor="bg-amber-400"
+                    />
+                  </div>
+                  <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <CardStats
+                      statSubtitle="MAKLUM BALAS"
+                      statTitle={dashboard.feedbacks}
+                      statArrow="down"
+                      statPercent="1.10"
+                      statPercentColor="text-red-500"
+                      statDescripiron="Since yesterday"
+                      statIconName="fas fa-message"
+                      statIconColor="bg-amber-400"
+                    />
+                  </div>
+                  <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+                    <CardStats
+                      statSubtitle="JUALAN"
+                      statTitle="RM 2000"
+                      statArrow="up"
+                      statPercent="12"
+                      statPercentColor="text-emerald-500"
+                      statDescripiron="Since last month"
+                      statIconName="fas fa-chart-line"
+                      statIconColor="bg-amber-400"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         {/if}
         <!-- /End replace -->

@@ -183,7 +183,7 @@
       <div class="lg:text-center">
         <h2 class="text-base text-pink-400 font-semibold tracking-wide uppercase">Istimewa</h2>
         <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-amber-400 sm:text-4xl">Produk kecantikan yang memberi kepuasan</p>
-        <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Nureel Beauty menyediakan produk-produk terbaik serta peluang untuk berjaya kepada semua orang</p>
+        <p class="mt-4 max-w-2xl text-xl text-neutral-100 lg:mx-auto">Nureel Beauty memberi produk-produk terbaik serta peluang untuk berjaya</p>
       </div>
   
       <div class="mt-10">
@@ -238,10 +238,7 @@
     <div class="max-w-2xl mx-auto py-10 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
       <div>
         <h2 class="text-3xl font-extrabold tracking-tight text-amber-400 sm:text-4xl">Serum Bibir</h2>
-        <p class="mt-4 text-neutral-100">Serum bibir menenangkan kulit anda dan menjadikan bibir anda
-          halus dan membuat mereka kelihatan tembam dan
-          terhidrat. Kandungan yang kaya khasiat dengan minyak penghidratan 
-          menjadikan bibir anda sihat dan segar.</p>
+        <p class="mt-4 text-neutral-100">'Advanced Theraphy' bagi merawat bibir kering & merekah serta menjadikan kelihatan menawan & lembap. Boleh juga digunakan sebagai asas lipstik supaya lipstik tidak melekat di kulit bibir secara terus.</p>
   
         <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
           <div class="border-t border-gray-200 pt-4">

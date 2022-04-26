@@ -23,7 +23,25 @@
 
   for (let i of users){
     let d = new Date(i.date)
-    array.push([i.name, i.email, d.toLocaleString('en-GB')])
+    let userType;
+    switch(i.type) {
+      case 0:
+        userType = 'Ahli'
+        break;
+      case 1:
+        userType = 'Super Admin'
+        break;
+      case 2:
+        userType = 'Admin'
+        break;
+      case 3:
+        userType = 'Ejen'
+        break;
+      case 4:
+        userType = 'Stokis'
+        break;
+    }
+    array.push([i.name, i.email, d.toLocaleString('en-GB'), userType])
   }
 
   // const data = users;
@@ -35,6 +53,8 @@
     sort: true
   },{
     name: "Tarikh Serta",
+  },{
+    name: "Jenis",
   }];
   const style = {
 		table: {
