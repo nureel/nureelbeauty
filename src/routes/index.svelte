@@ -361,7 +361,7 @@
               <span class="block xl:inline">Pengasas Nureel Beauty</span>
               <span class="block text-amber-400 xl:inline">Puan Becca</span>
             </h1>
-            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+            <p class="mt-3 text-base text-neutral-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Sesuatu kejayaan dapat dicapai dengan adanya keyakinan diri yang tinggi. Keyakinan diri bukanlah sesuatu yang mudah untuk dimiliki. Antara kunci utama keyakinan diri adalah kulit yang sihat dan berseri. Nureel Beauty merupakan sebuah jenama untuk produk penjagaan kulit yang mampu membantu anda untuk mendapatkan kulit yang anda inginkan.</p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <!-- <div class="rounded-md shadow">
                 <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
@@ -387,7 +387,7 @@
       </h2>
       <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
         <div class="inline-flex rounded-md shadow">
-          <a href="/#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Daftar Sekarang </a>
+          <a href="/auth/signup" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-neutral-900 bg-amber-400 hover:bg-pink-400"> Daftar Sekarang </a>
         </div>
       </div>
     </div>
